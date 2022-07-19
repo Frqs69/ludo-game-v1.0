@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/scss/main.scss">
+    <script defer src="./src/js/main.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="board">
+
+            <div class="board_green">
+                <div class="pawn_home" id="green-home"></div>
+                <div class="pawn_home" id="green-home"></div>
+                <div class="pawn_home" id="green-home"></div>
+                <div class="pawn_home" id="green-home"></div>
+            </div>
+
+            <div class="board_yellow">
+                <div class="pawn_home" id="yellow-home"></div>
+                <div class="pawn_home" id="yellow-home"></div>
+                <div class="pawn_home" id="yellow-home"></div>
+                <div class="pawn_home" id="yellow-home"></div>
+            </div>
+
+            <div class="board_red">
+                <div class="pawn_home" id="red-home"></div>
+                <div class="pawn_home" id="red-home"></div>
+                <div class="pawn_home" id="red-home"></div>
+                <div class="pawn_home" id="red-home"></div>
+            </div>
+
+            <div class="board_blue">
+                <div class="pawn_home" id="blue-home"></div>
+                <div class="pawn_home" id="blue-home"></div>
+                <div class="pawn_home" id="blue-home"></div>
+                <div class="pawn_home" id="blue-home"></div>
+            </div>
+
+            <!-- 1 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+
+            <!-- 2 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit">
+            </div>
+            <div class="board_field board_field_yellow">
+                <!-- <div class="pawn yellowPawn outOfHome" id="3"></div> -->
+            </div>
+            <!-- 3 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit">
+            </div>
+            <div class="board_field board_field_white"></div>
+            <!-- 4 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 5 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 6 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 7 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_green"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_yellow yellowExit"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 8 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field board_field_green greenExit"></div>
+            <div class="board_field"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_blue blueExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 9 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_blue"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 10 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 11 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 12-->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 13 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 14 -->
+            <div class="board_field board_field_red"></div>
+            <div class="board_field board_field_red redExit"></div>
+            <div class="board_field board_field_white"></div>
+            <!-- 15 -->
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+            <div class="board_field board_field_white"></div>
+
+        </div>
+
+        <div class="cube-container">
+            <div class="cube">
+
+                <div class="cube_result cube_result-forOne">
+                    <div class="cube_result-dot cube_result-forOne-one"></div>
+                </div>
+
+                <!-- <div class="cube_result cube_result-forTwo">
+                    <div class="cube_result-dot cube_result-forTwo-one"></div>
+                    <div class="cube_result-dot cube_result-forTwo-two"></div>
+                </div> -->
+
+                <!-- <div class="cube_result cube_result-forThree">
+                    <div class="cube_result-dot cube_result-forThree-one"></div>
+                    <div class="cube_result-dot cube_result-forThree-two"></div>
+                    <div class="cube_result-dot cube_result-forThree-three"></div>
+                </div> -->
+
+                <!-- <div class="cube_result cube_result-forFour">
+                    <div class="cube_result-dot cube_result-forFour-one"></div>
+                    <div class="cube_result-dot cube_result-forFour-two"></div>
+                    <div class="cube_result-dot cube_result-forFour-three"></div>
+                    <div class="cube_result-dot cube_result-forFour-four"></div>
+                </div> -->
+
+                <!-- <div class="cube_result cube_result-forFive">
+                    <div class="cube_result-dot cube_result-forFive-one"></div>
+                    <div class="cube_result-dot cube_result-forFive-two"></div>
+                    <div class="cube_result-dot cube_result-forFive-three"></div>
+                    <div class="cube_result-dot cube_result-forFour-four"></div>
+                    <div class="cube_result-dot cube_result-forFive-five"></div>
+                </div> -->
+                <!-- 
+                <div class="cube_result cube_result-forSix">
+                    <div class="cube_result-dot cube_result-forSix-one"></div>
+                    <div class="cube_result-dot cube_result-forSix-two"></div>
+                    <div class="cube_result-dot cube_result-forSix-three"></div>
+                    <div class="cube_result-dot cube_result-forSix-four"></div>
+                    <div class="cube_result-dot cube_result-forSix-five"></div>
+                    <div class="cube_result-dot cube_result-forSix-six"></div>
+                </div> -->
+
+            </div>
+            <button class="btn_throw_cube">Rzut kostką</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
