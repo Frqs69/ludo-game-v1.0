@@ -10,7 +10,7 @@ class YellowPawns extends Pawns {
 	//dodaje ruch pionkowi o podaną liczbę z kostki oraz o wybrany target
 	//number - liczba wylosowanych oczek
 	//target - klikany target
-	move = (number, target) => {
+	move(number, target) {
 		const actualBoard = target.closest(".board_field");
 		if (actualBoard === null) return;
 
@@ -50,8 +50,7 @@ class YellowPawns extends Pawns {
 			`<div class="pawn ${this.color} outOfHome" id="3"></div>`
 		);
 		target.remove();
-		this.addmove();
-	};
+	}
 }
 
 export default new YellowPawns();

@@ -44,7 +44,6 @@ class RedPawns extends Pawns {
 			`<div class="pawn ${this.color} outOfHome"></div>`
 		);
 		target.remove();
-		this.addmove();
 	};
 }
 

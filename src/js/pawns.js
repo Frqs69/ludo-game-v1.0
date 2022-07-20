@@ -7,6 +7,22 @@ export default class Pawns {
 	random;
 	moveBoard;
 
+	colors = {
+		first: "greenPawn",
+		second: "yellowPawn",
+		third: "bluePawn",
+		fourth: "redPawn",
+	};
+
+	turns = {
+		greenTurn: true,
+		yellowTurn: false,
+		blueTurn: false,
+		redTurn: false,
+	};
+
+	numberOfTurn = 0;
+
 	//wykonuje funkcje renderujące
 	async load() {
 		await this.renderPawnInHome();
@@ -17,15 +33,12 @@ export default class Pawns {
 	loadPawns() {
 		this.pawns = document.querySelectorAll(`.${this.color}`);
 		this.pawns.forEach((element) => {
-			element.dataset.inHome = true;
 			element.addEventListener("click", () => {
-				element.dataset.inHome = false;
 				element.classList.add("outOfHome");
 				if (true) {
 					//this.random === 1 || this.random === 6
 					this.renderOut(element);
-					this.addmove();
-					this.random = 0;
+					// this.addmove();
 					return;
 				}
 			});
@@ -34,13 +47,54 @@ export default class Pawns {
 
 	//dodaje listenera do każdego z pionków, które mają klasę outOfHome
 	addmove() {
-		const ypawn = document.querySelectorAll(".outOfHome");
+		const ypawn = document.querySelectorAll(`.${this.color}`);
+		console.log(this.color);
+
 		ypawn.forEach((el) => {
 			el.addEventListener("click", (e) => {
+				console.log("element", el);
+				console.log("target", e);
 				this.move(this.random, e.target);
+				// console.log(this.turns);
+				this.removeMove();
 			});
 		});
 	}
+
+	removeMove() {
+		const ypawn = document.querySelectorAll(`.${this.color}`);
+
+		ypawn.forEach((el) => {
+			el.removeEventListener("click", (e) => {});
+		});
+	}
+
+	// checkTurns(el, e) {
+	// 	if (el.classList.contains("greenPawn") && this.turns.greenTurn === true) {
+	// 		console.log("tura zielona");
+	// 		this.move(this.random, e.target);
+	// 		this.turns.greenTurn = false;
+	// 		this.turns.yellowTurn = true;
+	// 	}
+	// 	if (el.classList.contains("yellowPawn") && this.turns.yellowTurn === true) {
+	// 		console.log("tura żółta");
+	// 		this.move(this.random, e.target);
+	// 		this.turns.yellowTurn = false;
+	// 		this.turns.blueTurn = true;
+	// 	}
+	// 	if (el.classList.contains("bluePawn") && this.turns.blueTurn === true) {
+	// 		console.log("tura żółta");
+	// 		this.move(this.random, e.target);
+	// 		this.turns.blueTurn = false;
+	// 		this.turns.redTurn = true;
+	// 	}
+	// 	if (el.classList.contains("redPawn") && this.turns.redTurn === true) {
+	// 		console.log("tura żółta");
+	// 		this.move(this.random, e.target);
+	// 		this.turns.redTurn = false;
+	// 		this.turns.greenTurn = true;
+	// 	}
+	// }
 
 	//renderuje pionki poza domem
 	renderOut(element) {
@@ -50,6 +104,7 @@ export default class Pawns {
 				this.homeField.innerHTML = this.html;
 			} else if (this.homeField.innerHTML != "") {
 				this.homeField.insertAdjacentHTML("afterbegin", this.html);
+				// this.addmove(this.color);
 			}
 		}
 		element.remove();
@@ -60,10 +115,5 @@ export default class Pawns {
 		this.home.forEach((el, i) => {
 			el.innerHTML = `<div class='pawn ${this.color}' id=${i}></div>`;
 		});
-	}
-
-	clearPawn(field) {
-		const html = ``;
-		field.innerHTML = html;
 	}
 }

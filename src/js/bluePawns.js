@@ -45,7 +45,6 @@ class BluePawns extends Pawns {
 			`<div class="pawn ${this.color} outOfHome" id="3"></div>`
 		);
 		target.remove();
-		this.addmove();
 	};
 }
 

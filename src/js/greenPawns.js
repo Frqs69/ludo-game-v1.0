@@ -11,7 +11,7 @@ class GreenPawns extends Pawns {
 	//dodaje ruch pionkowi o podaną liczbę z kostki oraz o wybrany target
 	//number - liczba wylosowanych oczek
 	//target - klikany target
-	move = (number, target) => {
+	move(number, target) {
 		const actualBoard = target.closest(".board_field");
 		if (actualBoard === null) return;
 		//Odnowienie wielkości tablicy, aby pionek nie wyszedł poza planszę
@@ -27,7 +27,8 @@ class GreenPawns extends Pawns {
 				parseInt(actualBoard.id) > parseInt(this.endOfFields.id) - 6 &&
 				parseInt(actualBoard.id) <= parseInt(this.endOfFields.id)
 			) {
-				this.moveBoard = Board.greenExitFields[number - Math.abs(greenMath) - 1];
+				this.moveBoard =
+					Board.greenExitFields[number - Math.abs(greenMath) - 1];
 			} else {
 				//dodanie ruchu po reszcie planszy lub w polach domowych
 				if (actualBoard.classList.contains("greenExit")) {
@@ -45,8 +46,7 @@ class GreenPawns extends Pawns {
 			`<div class="pawn ${this.color} outOfHome"></div>`
 		);
 		target.remove();
-		this.addmove();
-	};
+	}
 }
 
 export default new GreenPawns();
