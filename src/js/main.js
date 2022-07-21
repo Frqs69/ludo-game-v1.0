@@ -4,8 +4,43 @@ import greenPawns from "./greenPawns.js";
 import redPawns from "./redPawns.js";
 import bluePawns from "./bluePawns.js";
 const throwCubeBtn = document.querySelector(".btn_throw_cube");
+const menuBtns = document.querySelectorAll(".btn");
+const startScreen = document.querySelector(".startScreen");
 const CUBE_MIN_VALUE = 1;
 const CUBE_MAX_VALUE = 6;
+
+//nadaje listenera każdemu przyciskowi i renderuje plansze według ilości graczy przy pomocy funkcji startGame
+menuBtns.forEach((el) => {
+	el.addEventListener("click", () => {
+		console.log("click", el);
+		startGame(el);
+	});
+});
+
+//renderuje pionki na planszy według ilości graczy
+const startGame = (btn) => {
+	console.log("btn", btn);
+	console.log(btn.classList.contains("onePlayer"));
+	if (btn.classList.contains("onePlayer") === true) {
+		greenPawns.load();
+		startScreen.style.display = "none";
+	} else if (btn.classList.contains("twoPlayers") === true) {
+		greenPawns.load();
+		yellowPawns.load();
+		startScreen.style.display = "none";
+	} else if (btn.classList.contains("threePlayers") === true) {
+		greenPawns.load();
+		yellowPawns.load();
+		bluePawns.load();
+		startScreen.style.display = "none";
+	} else if (btn.classList.contains("fourPlayers") === true) {
+		greenPawns.load();
+		yellowPawns.load();
+		bluePawns.load();
+		redPawns.load();
+		startScreen.style.display = "none";
+	}
+};
 
 let turns = {
 	greenTurn: true,
@@ -55,7 +90,7 @@ throwCubeBtn.addEventListener("click", () => {
 	checkMove();
 });
 
-yellowPawns.load();
 greenPawns.load();
-redPawns.load();
+yellowPawns.load();
 bluePawns.load();
+redPawns.load();
