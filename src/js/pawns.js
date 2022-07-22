@@ -52,50 +52,10 @@ export default class Pawns {
 
 		ypawn.forEach((el) => {
 			el.addEventListener("click", (e) => {
-				console.log("element", el);
-				console.log("target", e);
 				this.move(this.random, e.target);
-				// console.log(this.turns);
-				this.removeMove();
 			});
 		});
 	}
-
-	removeMove() {
-		const ypawn = document.querySelectorAll(`.${this.color}`);
-
-		ypawn.forEach((el) => {
-			el.removeEventListener("click", (e) => {});
-		});
-	}
-
-	// checkTurns(el, e) {
-	// 	if (el.classList.contains("greenPawn") && this.turns.greenTurn === true) {
-	// 		console.log("tura zielona");
-	// 		this.move(this.random, e.target);
-	// 		this.turns.greenTurn = false;
-	// 		this.turns.yellowTurn = true;
-	// 	}
-	// 	if (el.classList.contains("yellowPawn") && this.turns.yellowTurn === true) {
-	// 		console.log("tura żółta");
-	// 		this.move(this.random, e.target);
-	// 		this.turns.yellowTurn = false;
-	// 		this.turns.blueTurn = true;
-	// 	}
-	// 	if (el.classList.contains("bluePawn") && this.turns.blueTurn === true) {
-	// 		console.log("tura żółta");
-	// 		this.move(this.random, e.target);
-	// 		this.turns.blueTurn = false;
-	// 		this.turns.redTurn = true;
-	// 	}
-	// 	if (el.classList.contains("redPawn") && this.turns.redTurn === true) {
-	// 		console.log("tura żółta");
-	// 		this.move(this.random, e.target);
-	// 		this.turns.redTurn = false;
-	// 		this.turns.greenTurn = true;
-	// 	}
-	// }
-
 	//renderuje pionki poza domem
 	renderOut(element) {
 		if (this.home.innerHTML != "") {
