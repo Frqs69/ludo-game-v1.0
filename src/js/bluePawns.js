@@ -46,7 +46,7 @@ class BluePawns extends Pawns {
 
 		this.moveBoard.insertAdjacentHTML(
 			"afterbegin",
-			`<div class="pawn ${this.color} outOfHome" id="3"></div>`
+			`<button class="pawn ${this.color} outOfHome" id="3"></button>`
 		);
 
 		if (Board.blueExitFields[0].childNodes.length === 4) {

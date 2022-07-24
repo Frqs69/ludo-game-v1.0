@@ -47,7 +47,7 @@ class GreenPawns extends Pawns {
 
 		this.moveBoard.insertAdjacentHTML(
 			"afterbegin",
-			`<div class="pawn ${this.color} outOfHome"></div>`
+			`<button class="pawn ${this.color} outOfHome"></button>`
 		);
 
 		if (Board.greenExitFields[5].childNodes.length === 4) {
@@ -57,6 +57,7 @@ class GreenPawns extends Pawns {
 			this.winnerScreen.style.display = "flex";
 		}
 		target.remove();
+		console.log(Board.fields);
 	}
 }
 

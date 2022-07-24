@@ -66,18 +66,27 @@ class GameRoles {
 	//ustawia ruchygraczy edług ilości graczy
 	onePlayerMovement() {
 		greenPawns.addmove();
-		this.infoText.style.opacity = 1;
+		greenPawns.enableHomeElements();
+		greenPawns.enableFieldElements();
+		this.infoText.style.color = "rgb(0, 255, 64)";
+		this.infoText.textContent =
+			"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
 	}
 
 	twoPlayersMovement() {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
+			greenPawns.enableHomeElements();
+			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.opacity = 1;
 			this.infoText.style.color = "rgb(0, 255, 64)";
+			this.infoText.textContent =
+				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
 		} else {
 			yellowPawns.addmove();
+			yellowPawns.enableHomeElements();
+			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.greenTurn = true;
 			this.infoText.style.color = "rgb(225, 255, 0)";
@@ -87,17 +96,25 @@ class GameRoles {
 	threePlayersMovement() {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
+			greenPawns.enableHomeElements();
+			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.opacity = 1;
 			this.infoText.style.color = "rgb(0, 255, 64)";
+			this.infoText.textContent =
+				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
+			yellowPawns.enableHomeElements();
+			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.blueTurn = true;
 			this.infoText.style.color = "rgb(225, 255, 0)";
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
+			bluePawns.enableHomeElements();
+			yellowPawns.enableFieldElements();
+			bluePawns.enableFieldElements();
 			this.turns.blueTurn = false;
 			this.turns.greenTurn = true;
 			this.infoText.style.color = "rgb(47, 0, 255)";
@@ -107,22 +124,31 @@ class GameRoles {
 	fourPlayersMovement() {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
+			greenPawns.enableHomeElements();
+			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.opacity = 1;
 			this.infoText.style.color = "rgb(0, 255, 64)";
+			this.infoText.textContent =
+				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
+			yellowPawns.enableHomeElements();
+			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.blueTurn = true;
 			this.infoText.style.color = "rgb(225, 255, 0)";
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
+			bluePawns.enableHomeElements();
+			bluePawns.enableFieldElements();
 			this.turns.blueTurn = false;
 			this.turns.redTurn = true;
 			this.infoText.style.color = "rgb(47, 0, 255)";
 		} else if (this.turns.redTurn === true) {
 			redPawns.addmove();
+			redPawns.enableHomeElements();
+			redPawns.enableFieldElements();
 			this.turns.redTurn = false;
 			this.turns.greenTurn = true;
 			this.infoText.style.color = "rgb(255, 0, 17)";

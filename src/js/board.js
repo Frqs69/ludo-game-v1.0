@@ -82,27 +82,6 @@ class Board {
 	constructor() {
 		this.fields.forEach((element, i) => {
 			element.setAttribute("id", i);
-			element.dataset.occupied = false;
-		});
-
-		this.yellowExitFields.forEach((element, i) => {
-			element.setAttribute("id", i);
-			element.dataset.occupied = false;
-		});
-
-		this.greenExitFields.forEach((element, i) => {
-			element.setAttribute("id", i);
-			element.dataset.occupied = false;
-		});
-
-		this.blueExitFields.forEach((element, i) => {
-			element.setAttribute("id", i);
-			element.dataset.occupied = false;
-		});
-
-		this.redExitFields.forEach((element, i) => {
-			element.setAttribute("id", i);
-			element.dataset.occupied = false;
 		});
 	}
 }
