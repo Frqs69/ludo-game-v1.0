@@ -6,22 +6,7 @@ export default class Pawns {
 	pawns;
 	random;
 	moveBoard;
-
-	colors = {
-		first: "greenPawn",
-		second: "yellowPawn",
-		third: "bluePawn",
-		fourth: "redPawn",
-	};
-
-	turns = {
-		greenTurn: true,
-		yellowTurn: false,
-		blueTurn: false,
-		redTurn: false,
-	};
-
-	numberOfTurn = 0;
+	throwCubeBtn = document.querySelector(".btn_throw_cube");
 
 	//wykonuje funkcje renderujące
 	async load() {
@@ -38,6 +23,7 @@ export default class Pawns {
 				if (true) {
 					//this.random === 1 || this.random === 6
 					this.renderOut(element);
+					//!ADDED FOR TESTING
 					// this.addmove();
 					return;
 				}
@@ -53,6 +39,7 @@ export default class Pawns {
 		ypawn.forEach((el) => {
 			el.addEventListener("click", (e) => {
 				this.move(this.random, e.target);
+				this.throwCubeBtn.disabled = false;
 			});
 		});
 	}
@@ -64,7 +51,6 @@ export default class Pawns {
 				this.homeField.innerHTML = this.html;
 			} else if (this.homeField.innerHTML != "") {
 				this.homeField.insertAdjacentHTML("afterbegin", this.html);
-				// this.addmove(this.color);
 			}
 		}
 		element.remove();

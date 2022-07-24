@@ -4,9 +4,13 @@ import Board from "./board";
 class GreenPawns extends Pawns {
 	home = document.querySelectorAll("#green-home");
 	color = "greenPawn";
-	homeField = Board.fields[45];
-	actualField = Board.fields[45];
+	homeField = Board.fields[45]; //45
+	actualField = Board.fields[45]; //45
 	endOfFields = Board.fields[43];
+	winnerScreen = document.querySelector(".endGameScreen");
+	winnerScreenDescription = document.querySelector(
+		".endGameScreen_winnerColor"
+	);
 
 	//dodaje ruch pionkowi o podaną liczbę z kostki oraz o wybrany target
 	//number - liczba wylosowanych oczek
@@ -45,6 +49,13 @@ class GreenPawns extends Pawns {
 			"afterbegin",
 			`<div class="pawn ${this.color} outOfHome"></div>`
 		);
+
+		if (Board.greenExitFields[5].childNodes.length === 4) {
+			console.log("WINNER");
+			this.winnerScreenDescription.textContent = "Green";
+			this.winnerScreenDescription.style.color = "rgb(0, 255, 64)";
+			this.winnerScreen.style.display = "flex";
+		}
 		target.remove();
 	}
 }
