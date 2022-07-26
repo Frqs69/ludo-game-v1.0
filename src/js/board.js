@@ -83,6 +83,22 @@ class Board {
 		this.fields.forEach((element, i) => {
 			element.setAttribute("id", i);
 		});
+
+		this.yellowExitFields.forEach((element, i) => {
+			element.setAttribute("id", i);
+		});
+
+		this.greenExitFields.forEach((element, i) => {
+			element.setAttribute("id", i);
+		});
+
+		this.blueExitFields.forEach((element, i) => {
+			element.setAttribute("id", i);
+		});
+
+		this.redExitFields.forEach((element, i) => {
+			element.setAttribute("id", i);
+		});
 	}
 }
 

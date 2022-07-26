@@ -16,6 +16,7 @@ class GreenPawns extends Pawns {
 	//number - liczba wylosowanych oczek
 	//target - klikany target
 	move(number, target) {
+		console.log("test");
 		const actualBoard = target.closest(".board_field");
 		if (actualBoard === null) return;
 		//Odnowienie wielkości tablicy, aby pionek nie wyszedł poza planszę
@@ -36,6 +37,7 @@ class GreenPawns extends Pawns {
 			} else {
 				//dodanie ruchu po reszcie planszy lub w polach domowych
 				if (actualBoard.classList.contains("greenExit")) {
+					console.log('test2');
 					if (parseInt(actualBoard.id) + number > 5) return;
 					this.moveBoard =
 						Board.greenExitFields[parseInt(actualBoard.id) + number];
@@ -45,6 +47,7 @@ class GreenPawns extends Pawns {
 			}
 		}
 
+		console.log(this.moveBoard);
 		this.moveBoard.insertAdjacentHTML(
 			"afterbegin",
 			`<button class="pawn ${this.color} outOfHome"></button>`
