@@ -2,6 +2,7 @@ import yellowPawns from "./yellowPawns.js";
 import greenPawns from "./greenPawns.js";
 import redPawns from "./redPawns.js";
 import bluePawns from "./bluePawns.js";
+import { renderCommunicate } from "./helpers";
 
 class GameRoles {
 	turns = {
@@ -13,6 +14,12 @@ class GameRoles {
 	PLAYERS;
 	startScreen = document.querySelector(".startScreen");
 	infoText = document.querySelector(".comunicateBox_text");
+	colors = {
+		green: "rgb(0, 255, 64)",
+		yellow: "rgb(225, 255, 0)",
+		blue: "rgb(47, 0, 255)",
+		red: "rgb(255, 0, 17)",
+	};
 
 	//renderuje pionki na planszy według ilości graczy
 	startGame(btn) {
@@ -68,9 +75,7 @@ class GameRoles {
 		greenPawns.addmove();
 		greenPawns.enableHomeElements();
 		greenPawns.enableFieldElements();
-		this.infoText.style.color = "rgb(0, 255, 64)";
-		this.infoText.textContent =
-			"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
+		renderCommunicate(this.colors.green);
 	}
 
 	twoPlayersMovement() {
@@ -80,16 +85,14 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.color = "rgb(0, 255, 64)";
-			this.infoText.textContent =
-				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
+			renderCommunicate(this.colors.green);
 		} else {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.greenTurn = true;
-			this.infoText.style.color = "rgb(225, 255, 0)";
+			renderCommunicate(this.colors.yellow);
 		}
 	}
 
@@ -100,16 +103,14 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.color = "rgb(0, 255, 64)";
-			this.infoText.textContent =
-				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
+			renderCommunicate(this.colors.green);
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.blueTurn = true;
-			this.infoText.style.color = "rgb(225, 255, 0)";
+			renderCommunicate(this.colors.yellow);
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
 			bluePawns.enableHomeElements();
@@ -117,7 +118,7 @@ class GameRoles {
 			bluePawns.enableFieldElements();
 			this.turns.blueTurn = false;
 			this.turns.greenTurn = true;
-			this.infoText.style.color = "rgb(47, 0, 255)";
+			renderCommunicate(this.colors.blue);
 		}
 	}
 
@@ -128,30 +129,28 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 			this.turns.greenTurn = false;
 			this.turns.yellowTurn = true;
-			this.infoText.style.color = "rgb(0, 255, 64)";
-			this.infoText.textContent =
-				"Wybierz pionka do wykonania ruchu lub wyjścia z domu";
+			renderCommunicate(this.colors.green);
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
 			this.turns.yellowTurn = false;
 			this.turns.blueTurn = true;
-			this.infoText.style.color = "rgb(225, 255, 0)";
+			renderCommunicate(this.colors.yellow);
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
 			bluePawns.enableHomeElements();
 			bluePawns.enableFieldElements();
 			this.turns.blueTurn = false;
 			this.turns.redTurn = true;
-			this.infoText.style.color = "rgb(47, 0, 255)";
+			renderCommunicate(this.colors.blue);
 		} else if (this.turns.redTurn === true) {
 			redPawns.addmove();
 			redPawns.enableHomeElements();
 			redPawns.enableFieldElements();
 			this.turns.redTurn = false;
 			this.turns.greenTurn = true;
-			this.infoText.style.color = "rgb(255, 0, 17)";
+			renderCommunicate(this.colors.red);
 		}
 	}
 }
