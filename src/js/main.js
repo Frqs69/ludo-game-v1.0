@@ -31,7 +31,7 @@ throwCubeBtn.addEventListener("click", () => {
 	bluePawns.random = random;
 	Cube.renderCubeResult(random);
 
-	gameRoles.checkAllMoves(gameRoles.PLAYERS);
+	gameRoles.checkAllMoves(gameRoles.PLAYERS,random);
 	// throwCubeBtn.disabled = true;
 	// board.fields.forEach((el) => {
 	// 	if (el.childNodes.length === 0) {

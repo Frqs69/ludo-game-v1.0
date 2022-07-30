@@ -20,6 +20,7 @@ class GameRoles {
 		blue: "rgb(47, 0, 255)",
 		red: "rgb(255, 0, 17)",
 	};
+	communicate = "po wykonaniu ruchu możesz rzucić kostką jeszcze raz";
 
 	//renderuje pionki na planszy według ilości graczy
 	startGame(btn) {
@@ -51,19 +52,19 @@ class GameRoles {
 	}
 
 	//sprawdza ruch graczy według ilości graczy, którzy zostali wybrani
-	checkAllMoves(players) {
+	checkAllMoves(players, random) {
 		switch (players) {
 			case 1:
-				this.onePlayerMovement();
+				this.onePlayerMovement(random);
 				return;
 			case 2:
-				this.twoPlayersMovement();
+				this.twoPlayersMovement(random);
 				return;
 			case 3:
-				this.threePlayersMovement();
+				this.threePlayersMovement(random);
 				return;
 			case 4:
-				this.fourPlayersMovement();
+				this.fourPlayersMovement(random);
 				return;
 			default:
 				return;
@@ -71,86 +72,135 @@ class GameRoles {
 	}
 
 	//ustawia ruchygraczy edług ilości graczy
-	onePlayerMovement() {
+	onePlayerMovement(random) {
 		greenPawns.addmove();
 		greenPawns.enableHomeElements();
 		greenPawns.enableFieldElements();
-		renderCommunicate(this.colors.green);
+		if (random === 1 || random === 6) {
+			renderCommunicate(this.colors.green, this.communicate);
+		} else {
+			renderCommunicate(this.colors.green);
+		}
 	}
 
-	twoPlayersMovement() {
+	twoPlayersMovement(random) {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
 			greenPawns.enableHomeElements();
 			greenPawns.enableFieldElements();
-			this.turns.greenTurn = false;
-			this.turns.yellowTurn = true;
-			renderCommunicate(this.colors.green);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.green, this.communicate);
+			} else {
+				renderCommunicate(this.colors.green);
+				this.turns.greenTurn = false;
+				this.turns.yellowTurn = true;
+			}
 		} else {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
-			this.turns.yellowTurn = false;
-			this.turns.greenTurn = true;
-			renderCommunicate(this.colors.yellow);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.yellow, this.communicate);
+			} else {
+				renderCommunicate(this.colors.yellow);
+				this.turns.yellowTurn = false;
+				this.turns.greenTurn = true;
+			}
 		}
 	}
 
-	threePlayersMovement() {
+	threePlayersMovement(random) {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
 			greenPawns.enableHomeElements();
 			greenPawns.enableFieldElements();
-			this.turns.greenTurn = false;
-			this.turns.yellowTurn = true;
-			renderCommunicate(this.colors.green);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.green, this.communicate);
+			} else {
+				renderCommunicate(this.colors.green);
+				this.turns.greenTurn = false;
+				this.turns.yellowTurn = true;
+			}
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
-			this.turns.yellowTurn = false;
-			this.turns.blueTurn = true;
-			renderCommunicate(this.colors.yellow);
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.yellow, this.communicate);
+			} else {
+				renderCommunicate(this.colors.yellow);
+				this.turns.yellowTurn = false;
+				this.turns.blueTurn = true;
+			}
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
 			bluePawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
 			bluePawns.enableFieldElements();
-			this.turns.blueTurn = false;
-			this.turns.greenTurn = true;
-			renderCommunicate(this.colors.blue);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.blue, this.communicate);
+			} else {
+				renderCommunicate(this.colors.blue);
+				this.turns.blueTurn = false;
+				this.turns.greenTurn = true;
+			}
 		}
 	}
 
-	fourPlayersMovement() {
+	fourPlayersMovement(random) {
 		if (this.turns.greenTurn === true) {
 			greenPawns.addmove();
 			greenPawns.enableHomeElements();
 			greenPawns.enableFieldElements();
-			this.turns.greenTurn = false;
-			this.turns.yellowTurn = true;
-			renderCommunicate(this.colors.green);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.green, this.communicate);
+			} else {
+				renderCommunicate(this.colors.green);
+				this.turns.greenTurn = false;
+				this.turns.yellowTurn = true;
+			}
 		} else if (this.turns.yellowTurn === true) {
 			yellowPawns.addmove();
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
-			this.turns.yellowTurn = false;
-			this.turns.blueTurn = true;
-			renderCommunicate(this.colors.yellow);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.yellow, this.communicate);
+			} else {
+				renderCommunicate(this.colors.yellow);
+				this.turns.yellowTurn = false;
+				this.turns.blueTurn = true;
+			}
 		} else if (this.turns.blueTurn === true) {
 			bluePawns.addmove();
 			bluePawns.enableHomeElements();
 			bluePawns.enableFieldElements();
-			this.turns.blueTurn = false;
-			this.turns.redTurn = true;
-			renderCommunicate(this.colors.blue);
+
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.blue, this.communicate);
+			} else {
+				renderCommunicate(this.colors.blue);
+				this.turns.blueTurn = false;
+				this.turns.redTurn = true;
+			}
 		} else if (this.turns.redTurn === true) {
 			redPawns.addmove();
 			redPawns.enableHomeElements();
 			redPawns.enableFieldElements();
-			this.turns.redTurn = false;
-			this.turns.greenTurn = true;
+
 			renderCommunicate(this.colors.red);
+			if (random === 1 || random === 6) {
+				renderCommunicate(this.colors.red, this.communicate);
+			} else {
+				renderCommunicate(this.colors.red);
+				this.turns.redTurn = false;
+				this.turns.greenTurn = true;
+			}
 		}
 	}
 }
