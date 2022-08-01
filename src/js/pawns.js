@@ -25,7 +25,7 @@ export default class Pawns {
 					// this.random === 1 || this.random === 6
 					this.renderOut(element);
 					// 	//!ADDED FOR TESTING
-						//  this.addmove();
+					//  this.addmove();
 					// 	return;
 				}
 				this.disableHomeElements();
@@ -75,6 +75,7 @@ export default class Pawns {
 	//renderuje pionki poza domem
 	renderOut(element) {
 		if (this.home.innerHTML != "") {
+			element.parentElement.classList.add("emptyHomeField");
 			this.html = `<button class="pawn ${this.color} outOfHome"></button>`;
 			if (this.homeField.innerHTML === "") {
 				this.homeField.innerHTML = this.html;

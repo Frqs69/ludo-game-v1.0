@@ -4,8 +4,9 @@ import Board from "./board";
 class BluePawns extends Pawns {
 	home = document.querySelectorAll("#blue-home");
 	color = "bluePawn";
-	homeField = Board.fields[17]; //17
-	actualField = Board.fields[17]; //17
+	//!!NEED TO BE 17 TO GAME WORKS FINE
+	homeField = Board.fields[48]; //17
+	actualField = Board.fields[48]; //17
 	endOfFields = Board.fields[15];
 	winnerScreen = document.querySelector(".endGameScreen");
 	winnerScreenDescription = document.querySelector(

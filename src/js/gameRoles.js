@@ -22,25 +22,54 @@ class GameRoles {
 	};
 	communicate = "po wykonaniu ruchu możesz rzucić kostką jeszcze raz";
 
-	//renderuje pionki na planszy według ilości graczy
+	//?renderuje pionki na planszy według ilości graczy
+	//! UNCOMENT IT AND DELETE STARTGAME BELOW TO GAME START WORKING
+	// startGame(btn) {
+	// 	console.log("btn", btn);
+	// 	console.log(btn.classList.contains("onePlayer"));
+	// 	if (btn.classList.contains("onePlayer") === true) {
+	// 		greenPawns.load();
+	// 		this.PLAYERS = 1;
+	// 		this.startScreen.style.display = "none";
+	// 	} else if (btn.classList.contains("twoPlayers") === true) {
+	// 		greenPawns.load();
+	// 		yellowPawns.load();
+	// 		this.PLAYERS = 2;
+	// 		this.startScreen.style.display = "none";
+	// 	} else if (btn.classList.contains("threePlayers") === true) {
+	// 		greenPawns.load();
+	// 		yellowPawns.load();
+	// 		bluePawns.load();
+	// 		this.PLAYERS = 3;
+	// 		this.startScreen.style.display = "none";
+	// 	} else if (btn.classList.contains("fourPlayers") === true) {
+	// 		greenPawns.load();
+	// 		yellowPawns.load();
+	// 		bluePawns.load();
+	// 		redPawns.load();
+	// 		this.PLAYERS = 4;
+	// 		this.startScreen.style.display = "none";
+	// 	}
+	// }
+
+	//! TESTING CLASS START GAME
 	startGame(btn) {
-		console.log("btn", btn);
-		console.log(btn.classList.contains("onePlayer"));
-		if (btn.classList.contains("onePlayer") === true) {
+		// console.log("btn", btn);
+		// console.log(btn.classList.contains("onePlayer"));
+		if (btn === 1) {
 			greenPawns.load();
 			this.PLAYERS = 1;
-			this.startScreen.style.display = "none";
-		} else if (btn.classList.contains("twoPlayers") === true) {
+			// this.startScreen.style.display = "none";
+		} else if (btn === 2) {
 			greenPawns.load();
 			yellowPawns.load();
 			this.PLAYERS = 2;
-			this.startScreen.style.display = "none";
-		} else if (btn.classList.contains("threePlayers") === true) {
+			// this.startScreen.style.display = "none";
+		} else if (btn === 3) {
 			greenPawns.load();
 			yellowPawns.load();
 			bluePawns.load();
 			this.PLAYERS = 3;
-			this.startScreen.style.display = "none";
 		} else if (btn.classList.contains("fourPlayers") === true) {
 			greenPawns.load();
 			yellowPawns.load();

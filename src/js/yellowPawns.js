@@ -4,8 +4,9 @@ import Board from "./board";
 class YellowPawns extends Pawns {
 	home = document.querySelectorAll("#yellow-home");
 	color = "yellowPawn";
-	homeField = Board.fields[3]; //3
-	actualField = Board.fields[3]; //3
+	//!!NEED TO BE 3 TO GAME WORKS FINE
+	homeField = Board.fields[48]; //3
+	actualField = Board.fields[48]; //3
 	winnerScreen = document.querySelector(".endGameScreen");
 	winnerScreenDescription = document.querySelector(
 		".endGameScreen_winnerColor"
@@ -49,9 +50,10 @@ class YellowPawns extends Pawns {
 			}
 		}
 
+		console.log(this.moveBoard.childNodes[0]);
 		this.moveBoard.insertAdjacentHTML(
 			"afterbegin",
-			`<button class="pawn ${this.color} outOfHome" id="3"></button>`
+			`<button class="pawn ${this.color} outOfHome"></button>`
 		);
 
 		if (Board.yellowExitFields[5].childNodes.length === 4) {

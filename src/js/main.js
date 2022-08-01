@@ -23,15 +23,20 @@ const rand = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+//! DELETE IT TO GAME WORK
+gameRoles.startGame(3);
+
 throwCubeBtn.addEventListener("click", () => {
-	const random = rand(CUBE_MIN_VALUE, CUBE_MAX_VALUE);
+	//! UNCOMENT IT TO GAME WORK
+	// const random = rand(CUBE_MIN_VALUE, CUBE_MAX_VALUE);
+	const random = 3;
 	yellowPawns.random = random;
 	greenPawns.random = random;
 	redPawns.random = random;
 	bluePawns.random = random;
 	Cube.renderCubeResult(random);
 
-	gameRoles.checkAllMoves(gameRoles.PLAYERS,random);
+	gameRoles.checkAllMoves(gameRoles.PLAYERS, random);
 	// throwCubeBtn.disabled = true;
 	// board.fields.forEach((el) => {
 	// 	if (el.childNodes.length === 0) {

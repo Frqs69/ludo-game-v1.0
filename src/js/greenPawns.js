@@ -1,5 +1,6 @@
 import Pawns from "./pawns.js";
 import Board from "./board";
+import yellowPawns from "./yellowPawns.js";
 
 class GreenPawns extends Pawns {
 	home = document.querySelectorAll("#green-home");
@@ -37,7 +38,7 @@ class GreenPawns extends Pawns {
 			} else {
 				//dodanie ruchu po reszcie planszy lub w polach domowych
 				if (actualBoard.classList.contains("greenExit")) {
-					console.log('test2');
+					console.log("test2");
 					if (parseInt(actualBoard.id) + number > 5) return;
 					this.moveBoard =
 						Board.greenExitFields[parseInt(actualBoard.id) + number];
@@ -47,11 +48,55 @@ class GreenPawns extends Pawns {
 			}
 		}
 
-		console.log(this.moveBoard);
-		this.moveBoard.insertAdjacentHTML(
-			"afterbegin",
-			`<button class="pawn ${this.color} outOfHome"></button>`
-		);
+		//TODO PRZEANALIZOWAĆ TEN FRAGMENT I ZAIPLEMENTOWAĆ DLA RESZTY PIONKÓW
+		console.log(this.home);
+		if (this.moveBoard.childNodes[0] != undefined) {
+			console.log(
+				this.moveBoard.childNodes[0].classList.contains("yellowPawn")
+			);
+			if (
+				this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true
+			) {
+				console.log("Zbiłeś żółtego");
+				const [...enemyHome] = document.querySelectorAll("#yellow-home");
+				console.log("yellow home", enemyHome);
+				enemyHome.some((el, i) => {
+					if (el.classList.contains("emptyHomeField") === true) {
+						console.log("pusty element: ", i, " jest to element to ", el);
+						const html = `<button class="pawn yellowPawn outOfHome"></button>`;
+						el.insertAdjacentHTML("afterbegin", html);
+						console.log("element domowy:", el.firstChild);
+						el.firstChild.addEventListener("click", () => {
+							el.firstChild.classList.add("outOfHome");
+							if (true) {
+								// this.random === 1 || this.random === 6
+								yellowPawns.renderOut(el.firstChild);
+								// 	//!ADDED FOR TESTING
+								//  this.addmove();
+								// 	return;
+							}
+						});
+						el.classList.remove("emptyHomeField");
+						return true;
+					}
+				});
+
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (
+				this.moveBoard.childNodes[0].classList.contains("bluePawn") === true
+			) {
+				console.log("zbiłeś niebieskiego");
+			} else if (
+				this.moveBoard.childNodes[0].classList.contains("redPawn") === true
+			) {
+				console.log("zbiłeś czerwonego");
+			}
+		} else {
+			this.moveBoard.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="pawn ${this.color} outOfHome"></button>`
+			);
+		}
 
 		if (Board.greenExitFields[5].childNodes.length === 4) {
 			console.log("WINNER");
