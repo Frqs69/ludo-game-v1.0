@@ -1,5 +1,8 @@
 import Pawns from "./pawns.js";
 import Board from "./board";
+import greenPawns from "./greenPawns.js";
+import yellowPawns from "./yellowPawns.js";
+import bluePawns from "./bluePawns.js";
 
 class RedPawns extends Pawns {
 	home = document.querySelectorAll("#red-home");
@@ -43,10 +46,25 @@ class RedPawns extends Pawns {
 			}
 		}
 
-		this.moveBoard.insertAdjacentHTML(
-			"afterbegin",
-			`<button class="pawn ${this.color} outOfHome"></button>`
-		);
+		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
+		// prettier-ignore
+		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("redPawn") === false) {
+			if (this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true) {
+				this.checkIfPawnReturnHome("yellow", yellowPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("greenPawn") === true) {
+				this.checkIfPawnReturnHome("green", greenPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("bluePawn") === true) {
+				this.checkIfPawnReturnHome("blue", bluePawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			}
+		} else {
+			this.moveBoard.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="pawn ${this.color} outOfHome"></button>`
+			);
+		}
 
 		if (Board.redExitFields[0].childNodes.length === 4) {
 			console.log("WINNER");

@@ -1,12 +1,15 @@
 import Pawns from "./pawns.js";
 import Board from "./board";
+import greenPawns from "./greenPawns.js";
+import yellowPawns from "./yellowPawns.js";
+import redPawns from "./redPawns.js";
 
 class BluePawns extends Pawns {
 	home = document.querySelectorAll("#blue-home");
 	color = "bluePawn";
 	//!!NEED TO BE 17 TO GAME WORKS FINE
-	homeField = Board.fields[48]; //17
-	actualField = Board.fields[48]; //17
+	homeField = Board.fields[17]; //17
+	actualField = Board.fields[17]; //17
 	endOfFields = Board.fields[15];
 	winnerScreen = document.querySelector(".endGameScreen");
 	winnerScreenDescription = document.querySelector(
@@ -45,10 +48,25 @@ class BluePawns extends Pawns {
 			}
 		}
 
-		this.moveBoard.insertAdjacentHTML(
-			"afterbegin",
-			`<button class="pawn ${this.color} outOfHome" id="3"></button>`
-		);
+		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
+		// prettier-ignore
+		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("bluePawn") === false) {
+			if (this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true) {
+				this.checkIfPawnReturnHome("yellow", yellowPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("greenPawn") === true) {
+				this.checkIfPawnReturnHome("green", greenPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("redPawn") === true) {
+				this.checkIfPawnReturnHome("red", redPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			}
+		} else {
+			this.moveBoard.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="pawn ${this.color} outOfHome"></button>`
+			);
+		}
 
 		if (Board.blueExitFields[0].childNodes.length === 4) {
 			console.log("WINNER");

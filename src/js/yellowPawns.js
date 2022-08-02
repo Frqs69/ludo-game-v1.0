@@ -1,12 +1,15 @@
 import Pawns from "./pawns.js";
 import Board from "./board";
+import greenPawns from "./greenPawns.js";
+import bluePawns from "./bluePawns.js";
+import redPawns from "./redPawns.js";
 
 class YellowPawns extends Pawns {
 	home = document.querySelectorAll("#yellow-home");
 	color = "yellowPawn";
 	//!!NEED TO BE 3 TO GAME WORKS FINE
-	homeField = Board.fields[48]; //3
-	actualField = Board.fields[48]; //3
+	homeField = Board.fields[3]; //3
+	actualField = Board.fields[3]; //3
 	winnerScreen = document.querySelector(".endGameScreen");
 	winnerScreenDescription = document.querySelector(
 		".endGameScreen_winnerColor"
@@ -50,11 +53,25 @@ class YellowPawns extends Pawns {
 			}
 		}
 
-		console.log(this.moveBoard.childNodes[0]);
-		this.moveBoard.insertAdjacentHTML(
-			"afterbegin",
-			`<button class="pawn ${this.color} outOfHome"></button>`
-		);
+		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
+		// prettier-ignore
+		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("yellowPawn") === false) {
+			if (this.moveBoard.childNodes[0].classList.contains("greenPawn") === true) {
+				this.checkIfPawnReturnHome("green", greenPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("bluePawn") === true) {
+				this.checkIfPawnReturnHome("blue", bluePawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			} else if (this.moveBoard.childNodes[0].classList.contains("redPawn") === true) {
+				this.checkIfPawnReturnHome("red", redPawns);
+				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
+			}
+		} else {
+			this.moveBoard.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="pawn ${this.color} outOfHome"></button>`
+			);
+		}
 
 		if (Board.yellowExitFields[5].childNodes.length === 4) {
 			console.log("WINNER");
@@ -64,9 +81,6 @@ class YellowPawns extends Pawns {
 		}
 
 		target.remove();
-
-		//!ADDED FOR TESTING
-		this.addmove();
 	}
 }
 
