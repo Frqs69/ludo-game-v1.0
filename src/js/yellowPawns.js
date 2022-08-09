@@ -3,6 +3,7 @@ import Board from "./board";
 import greenPawns from "./greenPawns.js";
 import bluePawns from "./bluePawns.js";
 import redPawns from "./redPawns.js";
+import { renderCommunicate } from "./helpers";
 
 class YellowPawns extends Pawns {
 	home = document.querySelectorAll("#yellow-home");
@@ -56,7 +57,10 @@ class YellowPawns extends Pawns {
 		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
 		// prettier-ignore
 		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("yellowPawn") === false) {
-			if (this.moveBoard.childNodes[0].classList.contains("greenPawn") === true) {
+			if(this.moveBoard.classList.contains("board_field_yellow") || this.moveBoard.classList.contains("board_field_blue") || this.moveBoard.classList.contains("board_field_red") || this.moveBoard.classList.contains("board_field_green")){
+				this.moveBoard.insertAdjacentHTML("afterbegin",`<button class="pawn ${this.color} outOfHome"></button>`);
+				this.disableFieldElements();
+			} else if (this.moveBoard.childNodes[0].classList.contains("greenPawn") === true) {
 				this.checkIfPawnReturnHome("green", greenPawns);
 				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
 			} else if (this.moveBoard.childNodes[0].classList.contains("bluePawn") === true) {
@@ -67,10 +71,17 @@ class YellowPawns extends Pawns {
 				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
 			}
 		} else {
+			if(this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true){
+				renderCommunicate(this.color,'Na jednym polu może stać tylko jeden pionek')
+				return 
+			}
 			this.moveBoard.insertAdjacentHTML(
 				"afterbegin",
 				`<button class="pawn ${this.color} outOfHome"></button>`
 			);
+
+			this.throwCubeBtn.classList.add("btn_animation");
+			this.disableFieldElements();
 		}
 
 		if (Board.yellowExitFields[5].childNodes.length === 4) {

@@ -27,9 +27,10 @@ const rand = (min, max) => {
 gameRoles.startGame(3);
 
 throwCubeBtn.addEventListener("click", () => {
+	throwCubeBtn.classList.remove("btn_animation");
 	//! UNCOMENT IT TO GAME WORK
 	// const random = rand(CUBE_MIN_VALUE, CUBE_MAX_VALUE);
-	const random = 3;
+	const random = 2;
 	yellowPawns.random = random;
 	greenPawns.random = random;
 	redPawns.random = random;
@@ -37,20 +38,4 @@ throwCubeBtn.addEventListener("click", () => {
 	Cube.renderCubeResult(random);
 
 	gameRoles.checkAllMoves(gameRoles.PLAYERS, random);
-	// throwCubeBtn.disabled = true;
-	// board.fields.forEach((el) => {
-	// 	if (el.childNodes.length === 0) {
-	// 		suma += el.childNodes.length
-	// 	}
-	// });
-	// console.log(suma);
-	// if (suma === 0) {
-	// 	console.log("tak");
-	// 	console.log(suma);
-	// }
 });
-
-// greenPawns.load();
-// yellowPawns.load();
-// bluePawns.load();
-// redPawns.load();

@@ -53,7 +53,6 @@ export default class Pawns {
 			el.addEventListener("click", (e) => {
 				this.move(this.random, e.target);
 				this.throwCubeBtn.disabled = false;
-				this.disableFieldElements();
 			});
 		});
 	}
@@ -82,6 +81,7 @@ export default class Pawns {
 				this.homeField.insertAdjacentHTML("afterbegin", this.html);
 			}
 		}
+		this.throwCubeBtn.classList.add("btn_animation");
 		element.remove();
 	}
 
@@ -100,14 +100,11 @@ export default class Pawns {
 		enemyHome.some((el) => {
 			if (el.classList.contains("emptyHomeField") === true) {
 				const html = `<button class="pawn ${color}Pawn outOfHome"></button>`;
-				console.log("html to", html);
 				el.insertAdjacentHTML("afterbegin", html);
 				el.firstChild.addEventListener("click", () => {
 					el.firstChild.classList.add("outOfHome");
 					if (true) {
 						// this.random === 1 || this.random === 6
-						console.log("element firstchild", el.firstChild);
-						console.log("pawnClass", pawnClass);
 						pawnClass.renderOut(el.firstChild);
 					}
 				});

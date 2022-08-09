@@ -3,6 +3,7 @@ import Board from "./board";
 import yellowPawns from "./yellowPawns.js";
 import bluePawns from "./bluePawns.js";
 import redPawns from "./redPawns.js";
+import { renderCommunicate } from "./helpers";
 
 class GreenPawns extends Pawns {
 	home = document.querySelectorAll("#green-home");
@@ -49,10 +50,14 @@ class GreenPawns extends Pawns {
 			}
 		}
 
+		console.log(this.moveBoard);
 		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
 		// prettier-ignore
 		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("greenPawn") === false) {
-			if (this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true) {
+			if(this.moveBoard.classList.contains("board_field_yellow") || this.moveBoard.classList.contains("board_field_blue") || this.moveBoard.classList.contains("board_field_red") || this.moveBoard.classList.contains("board_field_green")){
+				this.moveBoard.insertAdjacentHTML("afterbegin",`<button class="pawn ${this.color} outOfHome"></button>`);
+				this.disableFieldElements();
+			}else if (this.moveBoard.childNodes[0].classList.contains("yellowPawn") === true) {
 				this.checkIfPawnReturnHome("yellow", yellowPawns);
 				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
 			} else if (this.moveBoard.childNodes[0].classList.contains("bluePawn") === true) {
@@ -63,10 +68,16 @@ class GreenPawns extends Pawns {
 				this.moveBoard.innerHTML = `<button class="pawn ${this.color} outOfHome"></button>`;
 			}
 		} else {
+			if(this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("greenPawn") === true){
+				renderCommunicate(this.color,'Na jednym polu może stać tylko jeden pionek')
+				return 
+			}
 			this.moveBoard.insertAdjacentHTML(
 				"afterbegin",
 				`<button class="pawn ${this.color} outOfHome"></button>`
 			);
+			this.throwCubeBtn.classList.add("btn_animation");
+			this.disableFieldElements();
 		}
 
 		if (Board.greenExitFields[5].childNodes.length === 4) {
@@ -75,6 +86,7 @@ class GreenPawns extends Pawns {
 			this.winnerScreenDescription.style.color = "rgb(0, 255, 64)";
 			this.winnerScreen.style.display = "flex";
 		}
+
 		target.remove();
 	}
 }

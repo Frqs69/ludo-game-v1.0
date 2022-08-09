@@ -20,7 +20,7 @@ class GameRoles {
 		blue: "rgb(47, 0, 255)",
 		red: "rgb(255, 0, 17)",
 	};
-	communicate = "po wykonaniu ruchu możesz rzucić kostką jeszcze raz";
+	communicateMoveAgain = "po wykonaniu ruchu możesz rzucić kostką jeszcze raz";
 
 	//?renderuje pionki na planszy według ilości graczy
 	//! UNCOMENT IT AND DELETE STARTGAME BELOW TO GAME START WORKING
@@ -106,7 +106,7 @@ class GameRoles {
 		greenPawns.enableHomeElements();
 		greenPawns.enableFieldElements();
 		if (random === 1 || random === 6) {
-			renderCommunicate(this.colors.green, this.communicate);
+			renderCommunicate(this.colors.green, this.communicateMoveAgain);
 		} else {
 			renderCommunicate(this.colors.green);
 		}
@@ -119,7 +119,7 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.green, this.communicate);
+				renderCommunicate(this.colors.green, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.green);
 				this.turns.greenTurn = false;
@@ -131,7 +131,7 @@ class GameRoles {
 			yellowPawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.yellow, this.communicate);
+				renderCommunicate(this.colors.yellow, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.yellow);
 				this.turns.yellowTurn = false;
@@ -147,7 +147,7 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.green, this.communicate);
+				renderCommunicate(this.colors.green, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.green);
 				this.turns.greenTurn = false;
@@ -158,7 +158,7 @@ class GameRoles {
 			yellowPawns.enableHomeElements();
 			yellowPawns.enableFieldElements();
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.yellow, this.communicate);
+				renderCommunicate(this.colors.yellow, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.yellow);
 				this.turns.yellowTurn = false;
@@ -171,7 +171,7 @@ class GameRoles {
 			bluePawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.blue, this.communicate);
+				renderCommunicate(this.colors.blue, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.blue);
 				this.turns.blueTurn = false;
@@ -187,7 +187,7 @@ class GameRoles {
 			greenPawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.green, this.communicate);
+				renderCommunicate(this.colors.green, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.green);
 				this.turns.greenTurn = false;
@@ -199,7 +199,7 @@ class GameRoles {
 			yellowPawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.yellow, this.communicate);
+				renderCommunicate(this.colors.yellow, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.yellow);
 				this.turns.yellowTurn = false;
@@ -211,7 +211,7 @@ class GameRoles {
 			bluePawns.enableFieldElements();
 
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.blue, this.communicate);
+				renderCommunicate(this.colors.blue, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.blue);
 				this.turns.blueTurn = false;
@@ -224,7 +224,7 @@ class GameRoles {
 
 			renderCommunicate(this.colors.red);
 			if (random === 1 || random === 6) {
-				renderCommunicate(this.colors.red, this.communicate);
+				renderCommunicate(this.colors.red, this.communicateMoveAgain);
 			} else {
 				renderCommunicate(this.colors.red);
 				this.turns.redTurn = false;
