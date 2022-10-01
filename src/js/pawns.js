@@ -22,16 +22,11 @@ export default class Pawns {
 			element.addEventListener("click", () => {
 				element.classList.add("outOfHome");
 				if (this.random === 1 || this.random === 6) {
-					// this.random === 1 || this.random === 6
-					this.renderOut(element);
-					// 	//!ADDED FOR TESTING
-					//  this.addmove();
-					// 	return;
+					this.renderOut(element);;
 					this.disableHomeElements();
 					this.disableFieldElements();
 				}
 			});
-			// this.disableFieldElements();
 		});
 		this.disableHomeElements();
 	}
@@ -97,8 +92,6 @@ export default class Pawns {
 
 	//funkcja sprawdza, które miejscie w domu jest puste i renderuje w nim pionka, któremu nadaje listenera do wychodzenia z domu
 	checkIfPawnReturnHome(color, pawnClass) {
-		console.log("color", color);
-		console.log("pawnClass przekazana", pawnClass);
 		const [...enemyHome] = document.querySelectorAll(`#${color}-home`);
 		enemyHome.some((el) => {
 			if (el.classList.contains("emptyHomeField") === true) {
@@ -106,8 +99,7 @@ export default class Pawns {
 				el.insertAdjacentHTML("afterbegin", html);
 				el.firstChild.addEventListener("click", () => {
 					el.firstChild.classList.add("outOfHome");
-					if (true) {
-						// this.random === 1 || this.random === 6
+					if (this.random === 1 || this.random === 6) {
 						pawnClass.renderOut(el.firstChild);
 					}
 				});

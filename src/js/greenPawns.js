@@ -40,7 +40,6 @@ class GreenPawns extends Pawns {
 			} else {
 				//dodanie ruchu po reszcie planszy lub w polach domowych
 				if (actualBoard.classList.contains("greenExit")) {
-					console.log("test2");
 					if (parseInt(actualBoard.id) + number > 5) return;
 					this.moveBoard =
 						Board.greenExitFields[parseInt(actualBoard.id) + number];
@@ -50,7 +49,6 @@ class GreenPawns extends Pawns {
 			}
 		}
 
-		console.log(this.moveBoard);
 		//sprawdzenie, czy następne pole jest zajmowane przez jakiegoś pionka przeciwnika, jeżeli tak, to zbija pionka
 		// prettier-ignore
 		if (this.moveBoard.childNodes[0] != undefined && this.moveBoard.childNodes[0].classList.contains("greenPawn") === false) {
@@ -81,7 +79,6 @@ class GreenPawns extends Pawns {
 		}
 
 		if (Board.greenExitFields[5].childNodes.length === 4) {
-			console.log("WINNER");
 			this.winnerScreenDescription.textContent = "Green";
 			this.winnerScreenDescription.style.color = "rgb(0, 255, 64)";
 			this.winnerScreen.style.display = "flex";

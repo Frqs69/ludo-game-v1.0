@@ -8,7 +8,6 @@ import { renderCommunicate } from "./helpers";
 class YellowPawns extends Pawns {
 	home = document.querySelectorAll("#yellow-home");
 	color = "yellowPawn";
-	//!!NEED TO BE 3 TO GAME WORKS FINE
 	homeField = Board.fields[3]; //3
 	actualField = Board.fields[3]; //3
 	winnerScreen = document.querySelector(".endGameScreen");
@@ -85,7 +84,6 @@ class YellowPawns extends Pawns {
 		}
 
 		if (Board.yellowExitFields[5].childNodes.length === 4) {
-			console.log("WINNER");
 			this.winnerScreenDescription.textContent = "Yellow";
 			this.winnerScreenDescription.style.color = "rgb(225, 255, 0)";
 			this.winnerScreen.style.display = "flex";

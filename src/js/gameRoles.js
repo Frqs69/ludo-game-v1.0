@@ -23,10 +23,7 @@ class GameRoles {
 	communicateMoveAgain = "możesz rzucić kostką jeszcze raz po wykonaniu ruchu";
 
 	//?renderuje pionki na planszy według ilości graczy
-	//! UNCOMENT IT AND DELETE STARTGAME BELOW TO GAME START WORKING
 	startGame(btn) {
-		console.log("btn", btn);
-		console.log(btn.classList.contains("onePlayer"));
 		if (btn.classList.contains("onePlayer") === true) {
 			greenPawns.load();
 			this.PLAYERS = 1;
@@ -51,34 +48,6 @@ class GameRoles {
 			this.startScreen.style.display = "none";
 		}
 	}
-
-	//! TESTING CLASS START GAME
-	// startGame(btn) {
-	// 	// console.log("btn", btn);
-	// 	// console.log(btn.classList.contains("onePlayer"));
-	// 	if (btn === 1) {
-	// 		greenPawns.load();
-	// 		this.PLAYERS = 1;
-	// 		// this.startScreen.style.display = "none";
-	// 	} else if (btn === 2) {
-	// 		greenPawns.load();
-	// 		yellowPawns.load();
-	// 		this.PLAYERS = 2;
-	// 		// this.startScreen.style.display = "none";
-	// 	} else if (btn === 3) {
-	// 		greenPawns.load();
-	// 		yellowPawns.load();
-	// 		bluePawns.load();
-	// 		this.PLAYERS = 3;
-	// 	} else if (btn.classList.contains("fourPlayers") === true) {
-	// 		greenPawns.load();
-	// 		yellowPawns.load();
-	// 		bluePawns.load();
-	// 		redPawns.load();
-	// 		this.PLAYERS = 4;
-	// 		this.startScreen.style.display = "none";
-	// 	}
-	// }
 
 	//sprawdza ruch graczy według ilości graczy, którzy zostali wybrani
 	checkAllMoves(players, random) {

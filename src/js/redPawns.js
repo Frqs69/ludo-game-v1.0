@@ -78,7 +78,6 @@ class RedPawns extends Pawns {
 		}
 
 		if (Board.redExitFields[0].childNodes.length === 4) {
-			console.log("WINNER");
 			this.winnerScreenDescription.textContent = "Red";
 			this.winnerScreenDescription.style.color = "rgb(255, 0, 17)";
 			this.winnerScreen.style.display = "flex";
