@@ -21,16 +21,19 @@ export default class Pawns {
 		this.pawns.forEach((element) => {
 			element.addEventListener("click", () => {
 				element.classList.add("outOfHome");
-				if (true) {
+				if (this.random === 1 || this.random === 6) {
 					// this.random === 1 || this.random === 6
 					this.renderOut(element);
 					// 	//!ADDED FOR TESTING
 					//  this.addmove();
 					// 	return;
+					this.disableHomeElements();
+					this.disableFieldElements();
 				}
-				this.disableHomeElements();
 			});
+			// this.disableFieldElements();
 		});
+		this.disableHomeElements();
 	}
 
 	enableHomeElements() {

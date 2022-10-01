@@ -24,13 +24,13 @@ const rand = (min, max) => {
 };
 
 //! DELETE IT TO GAME WORK
-gameRoles.startGame(3);
+// gameRoles.startGame(3);
 
 throwCubeBtn.addEventListener("click", () => {
 	throwCubeBtn.classList.remove("btn_animation");
 	//! UNCOMENT IT TO GAME WORK
-	// const random = rand(CUBE_MIN_VALUE, CUBE_MAX_VALUE);
-	const random = 2;
+	const random = rand(CUBE_MIN_VALUE, CUBE_MAX_VALUE);
+	// const random = 2;
 	yellowPawns.random = random;
 	greenPawns.random = random;
 	redPawns.random = random;
@@ -39,3 +39,6 @@ throwCubeBtn.addEventListener("click", () => {
 
 	gameRoles.checkAllMoves(gameRoles.PLAYERS, random);
 });
+
+//dodać na stronie startowej instrukcję
+// poprawić komentarze w kodzie, zrobić update na githubie i wrzucić grę na netlifiy

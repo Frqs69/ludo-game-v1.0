@@ -8,7 +8,6 @@ import { renderCommunicate } from "./helpers";
 class BluePawns extends Pawns {
 	home = document.querySelectorAll("#blue-home");
 	color = "bluePawn";
-	//!!NEED TO BE 17 TO GAME WORKS FINE
 	homeField = Board.fields[17]; //17
 	actualField = Board.fields[17]; //17
 	endOfFields = Board.fields[15];
